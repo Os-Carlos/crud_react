@@ -27,7 +27,7 @@
     text-align: center;
 }
 
-.modal-contenido TextField {
+.entrada {
     display: block;
     width: 100%;
     padding: 10px;
@@ -40,4 +40,8 @@
 .divApp{
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.icono{
+  cursor: pointer;
 }
