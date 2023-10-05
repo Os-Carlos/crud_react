@@ -175,9 +175,9 @@ function App() {
                 <TableCell>{cliente.telefono}</TableCell>
                 <TableCell>{cliente.nit}</TableCell>
                 <TableCell>
-                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar') className='iconos'} />
+                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar')} className='iconos'/>
                   &nbsp;&nbsp;&nbsp;
-                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar') className='iconos'} />
+                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar')} className='iconos'/>
                 </TableCell>
               </TableRow>
             ))}
