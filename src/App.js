@@ -92,7 +92,7 @@ function App() {
   }, [])
 
   const bodyInsertar = (
-    <div>
+    <div className='modal-contenido'>
       <h3>Agregar Cliente</h3>
       <TextField name='nombre' label='Nombre' onChange={handleChange} />
       <br />
@@ -115,7 +115,7 @@ function App() {
   )
 
   const bodyEditar = (
-    <div>
+    <div className='modal-contenido'>
       <h3>Modificar Cliente</h3>
       <TextField name='nombre' label='Nombre' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nombre} />
       <br />
@@ -137,7 +137,7 @@ function App() {
   )
 
   const bodyEliminar = (
-    <div>
+    <div className='modal-contenido'>
       <p>Estás seguro que deseas eliminar al cliente <b>{clienteSeleccionado && clienteSeleccionado.nombre}</b> ? </p>
       <div align="right">
         <Button color="secondary" onClick={() => peticionDelete()} >Sí</Button>
@@ -185,15 +185,15 @@ function App() {
         </Table>
       </TableContainer>
 
-      <Modal open={modalInsertar} onClose={abrirCerrarModalInsertar}>
+      <Modal open={modalInsertar} onClose={abrirCerrarModalInsertar} className='modal'>
         {bodyInsertar}
       </Modal>
 
-      <Modal open={modalEditar} onClose={abrirCerrarModalEditar}>
+      <Modal open={modalEditar} onClose={abrirCerrarModalEditar} className='modal'>
         {bodyEditar}
       </Modal>
 
-      <Modal open={modalEliminar} onClose={abrirCerrarModalEliminar}>
+      <Modal open={modalEliminar} onClose={abrirCerrarModalEliminar} className='modal'>
         {bodyEliminar}
       </Modal>
     </div>
