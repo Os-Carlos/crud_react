@@ -94,19 +94,19 @@ function App() {
   const bodyInsertar = (
     <div className='modal-contenido'>
       <h3>Agregar Cliente</h3>
-      <TextField name='nombre' label='Nombre' onChange={handleChange} />
+      <TextField name='nombre' label='Nombre' onChange={handleChange} className='entrada'/>
       <br />
-      <TextField name='apellido' label='Apellido' onChange={handleChange} />
+      <TextField name='apellido' label='Apellido' onChange={handleChange} className='entrada'/>
       <br />
-      <TextField name='direccion' label='Direccion' onChange={handleChange} />
+      <TextField name='direccion' label='Direccion' onChange={handleChange} className='entrada'/>
       <br />
-      <TextField name='correo' label='Correo' onChange={handleChange} />
+      <TextField name='correo' label='Correo' onChange={handleChange} className='entrada'/>
       <br />
-      <TextField name='telefono' label='Telefono' onChange={handleChange} />
+      <TextField name='telefono' label='Telefono' onChange={handleChange} className='entrada'/>
       <br />
-      <TextField name='nit' label='Nit' onChange={handleChange} />
+      <TextField name='nit' label='Nit' onChange={handleChange} className='entrada'/>
       <br /><br />
-      <div align='right'>
+      <div align='center'>
         <Button variant='contained' color='success' onClick={() => peticionPost()}>Insertar &nbsp;<Save /></Button>
         &nbsp;
         <Button variant='contained' color='warning' onClick={() => abrirCerrarModalInsertar()}>Cancelar &nbsp; <Cancel /></Button>
@@ -117,19 +117,19 @@ function App() {
   const bodyEditar = (
     <div className='modal-contenido'>
       <h3>Modificar Cliente</h3>
-      <TextField name='nombre' label='Nombre' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nombre} />
+      <TextField name='nombre' label='Nombre' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nombre} className='entrada'/>
       <br />
-      <TextField name='apellido' label='Apellido' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.apellido} />
+      <TextField name='apellido' label='Apellido' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.apellido} className='entrada'/>
       <br />
-      <TextField name='direccion' label='Direccion' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.direccion} />
+      <TextField name='direccion' label='Direccion' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.direccion} className='entrada'/>
       <br />
-      <TextField name='correo' label='Correo' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.correo} />
+      <TextField name='correo' label='Correo' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.correo} className='entrada'/>
       <br />
-      <TextField name='telefono' label='Telefono' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.telefono} />
+      <TextField name='telefono' label='Telefono' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.telefono} className='entrada'/>
       <br />
-      <TextField name='nit' label='Nit' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nit} />
+      <TextField name='nit' label='Nit' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nit} className='entrada'/>
       <br /><br />
-      <div align='right'>
+      <div align='center'>
         <Button variant='contained' color='success' onClick={() => peticionPut()}>Guardar &nbsp;<Save /></Button>
         <Button variant='contained' color='warning' onClick={() => abrirCerrarModalEditar()}>Cancelar &nbsp; <Cancel /></Button>
       </div>
@@ -139,7 +139,7 @@ function App() {
   const bodyEliminar = (
     <div className='modal-contenido'>
       <p>Estás seguro que deseas eliminar al cliente <b>{clienteSeleccionado && clienteSeleccionado.nombre}</b> ? </p>
-      <div align="right">
+      <div align='center'>
         <Button variant='contained' color="secondary" onClick={() => peticionDelete()} >Sí</Button>
         <Button variant='contained' onClick={() => abrirCerrarModalEliminar()}>No</Button>
       </div>
@@ -175,9 +175,9 @@ function App() {
                 <TableCell>{cliente.telefono}</TableCell>
                 <TableCell>{cliente.nit}</TableCell>
                 <TableCell>
-                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar')} />
+                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar') className='iconos'} />
                   &nbsp;&nbsp;&nbsp;
-                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar')} />
+                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar') className='iconos'} />
                 </TableCell>
               </TableRow>
             ))}
