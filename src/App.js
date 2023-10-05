@@ -140,17 +140,17 @@ function App() {
     <div className='modal-contenido'>
       <p>Estás seguro que deseas eliminar al cliente <b>{clienteSeleccionado && clienteSeleccionado.nombre}</b> ? </p>
       <div align="right">
-        <Button color="secondary" onClick={() => peticionDelete()} >Sí</Button>
-        <Button onClick={() => abrirCerrarModalEliminar()}>No</Button>
+        <Button variant='contained' color="secondary" onClick={() => peticionDelete()} >Sí</Button>
+        <Button variant='contained' onClick={() => abrirCerrarModalEliminar()}>No</Button>
       </div>
     </div>
   )
 
   return (
-    <div>
+    <div className='divApp'>
       <br />
       <Button variant='contained' color='primary' onClick={() => abrirCerrarModalInsertar()}>Agregar &nbsp;<Add /></Button>
-      <br />
+      <br /><br />
       <TableContainer>
         <Table>
           <TableHead>
