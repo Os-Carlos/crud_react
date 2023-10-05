@@ -5,7 +5,7 @@ import { Button, Modal, Table, TableBody, TableCell, TableContainer, TableHead, 
 import { Add, Cancel, Delete, Edit, Save } from '@mui/icons-material'
 
 function App() {
-  const baseUrl = 'http://localhost:4000/clientes/';
+  const baseUrl = 'https://api-node-pg.onrender.com/clientes/';
 
   const [cliente, setCliente] = useState([]);
   const [modalInsertar, setModalInsertar] = useState(false);
