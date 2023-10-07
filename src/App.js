@@ -94,21 +94,21 @@ function App() {
   const bodyInsertar = (
     <div className='modal-contenido'>
       <h3>Agregar Cliente</h3>
-      <TextField name='nombre' label='Nombre' onChange={handleChange} className='entrada'/>
+      <TextField name='nombre' label='Nombre' onChange={handleChange} variant="standard" margin="normal" required />
+      &nbsp;&nbsp;&nbsp;
+      <TextField name='apellido' label='Apellido' onChange={handleChange} variant="standard" margin="normal" required />
       <br />
-      <TextField name='apellido' label='Apellido' onChange={handleChange} className='entrada'/>
+      <TextField fullWidth name='direccion' label='Direccion' onChange={handleChange} variant="standard" margin="normal" required />
       <br />
-      <TextField name='direccion' label='Direccion' onChange={handleChange} className='entrada'/>
+      <TextField fullWidth name='correo' label='Correo' onChange={handleChange} variant="standard" margin="normal" required />
       <br />
-      <TextField name='correo' label='Correo' onChange={handleChange} className='entrada'/>
-      <br />
-      <TextField name='telefono' label='Telefono' onChange={handleChange} className='entrada'/>
-      <br />
-      <TextField name='nit' label='Nit' onChange={handleChange} className='entrada'/>
+      <TextField name='telefono' label='Telefono' onChange={handleChange} variant="standard" margin="normal" required />
+      &nbsp;&nbsp;&nbsp;
+      <TextField name='nit' label='Nit' onChange={handleChange} variant="standard" margin="normal" required />
       <br /><br />
       <div align='center'>
         <Button variant='contained' color='success' onClick={() => peticionPost()}>Insertar &nbsp;<Save /></Button>
-        &nbsp;
+        &nbsp;&nbsp;&nbsp;
         <Button variant='contained' color='warning' onClick={() => abrirCerrarModalInsertar()}>Cancelar &nbsp; <Cancel /></Button>
       </div>
     </div>
@@ -117,20 +117,21 @@ function App() {
   const bodyEditar = (
     <div className='modal-contenido'>
       <h3>Modificar Cliente</h3>
-      <TextField name='nombre' label='Nombre' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nombre} className='entrada'/>
+      <TextField name='nombre' label='Nombre' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nombre} variant="standard" margin="normal" />
+      &nbsp;&nbsp;&nbsp;
+      <TextField name='apellido' label='Apellido' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.apellido} variant="standard" margin="normal" />
       <br />
-      <TextField name='apellido' label='Apellido' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.apellido} className='entrada'/>
+      <TextField fullWidth name='direccion' label='Direccion' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.direccion} variant="standard" margin="normal" />
       <br />
-      <TextField name='direccion' label='Direccion' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.direccion} className='entrada'/>
+      <TextField fullWidth name='correo' label='Correo' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.correo} variant="standard" margin="normal" />
       <br />
-      <TextField name='correo' label='Correo' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.correo} className='entrada'/>
-      <br />
-      <TextField name='telefono' label='Telefono' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.telefono} className='entrada'/>
-      <br />
-      <TextField name='nit' label='Nit' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nit} className='entrada'/>
+      <TextField name='telefono' label='Telefono' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.telefono} variant="standard" margin="normal" />
+      &nbsp;&nbsp;&nbsp;
+      <TextField name='nit' label='Nit' onChange={handleChange} value={clienteSeleccionado && clienteSeleccionado.nit} variant="standard" margin="normal" />
       <br /><br />
       <div align='center'>
         <Button variant='contained' color='success' onClick={() => peticionPut()}>Guardar &nbsp;<Save /></Button>
+        &nbsp;&nbsp;&nbsp;
         <Button variant='contained' color='warning' onClick={() => abrirCerrarModalEditar()}>Cancelar &nbsp; <Cancel /></Button>
       </div>
     </div>
@@ -141,6 +142,7 @@ function App() {
       <p>Estás seguro que deseas eliminar al cliente <b>{clienteSeleccionado && clienteSeleccionado.nombre}</b> ? </p>
       <div align='center'>
         <Button variant='contained' color="secondary" onClick={() => peticionDelete()} >Sí</Button>
+        &nbsp;&nbsp;&nbsp;
         <Button variant='contained' onClick={() => abrirCerrarModalEliminar()}>No</Button>
       </div>
     </div>
@@ -149,12 +151,12 @@ function App() {
   return (
     <div className='divApp'>
       <br />
-      <Button variant='contained' color='primary' onClick={() => abrirCerrarModalInsertar()}>Agregar &nbsp;<Add /></Button>
+      <Button variant='contained' color='primary' onClick={() => abrirCerrarModalInsertar()} >Agregar &nbsp;<Add /></Button>
       <br /><br />
       <TableContainer>
-        <Table>
+        <Table stickyHeader >
           <TableHead>
-            <TableRow>
+            <TableRow >
               <TableCell>Nombre</TableCell>
               <TableCell>Apellido</TableCell>
               <TableCell>Direccion</TableCell>
@@ -167,17 +169,17 @@ function App() {
 
           <TableBody>
             {cliente.map(cliente => (
-              <TableRow key={cliente.id}>
-                <TableCell>{cliente.nombre}</TableCell>
+              <TableRow key={cliente.id} className='sombra'>
+                <TableCell >{cliente.nombre}</TableCell>
                 <TableCell>{cliente.apellido}</TableCell>
                 <TableCell>{cliente.direccion}</TableCell>
                 <TableCell>{cliente.correo}</TableCell>
                 <TableCell>{cliente.telefono}</TableCell>
                 <TableCell>{cliente.nit}</TableCell>
                 <TableCell>
-                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar')} className='iconos'/>
+                  <Edit onClick={() => seleccionarCliente(cliente, 'Editar')} className='iconos' />
                   &nbsp;&nbsp;&nbsp;
-                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar')} className='iconos'/>
+                  <Delete onClick={() => seleccionarCliente(cliente, 'Eliminar')} className='iconos' />
                 </TableCell>
               </TableRow>
             ))}
